@@ -11,9 +11,6 @@ import json
 import os
 import time
 
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-
 TEAM_IDS = []
 INCLUDE = []
 
