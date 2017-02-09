@@ -22,19 +22,28 @@ def get_schedules(schedule_name='', uri='/schedules'):
 	return r.json()
 
 
-@respond_to('ls schedules$', re.IGNORECASE)
+# @respond_to('ls schedules$', re.IGNORECASE)
 @respond_to('ls schedule (.*)$', re.IGNORECASE)
 def pd_schedules(message, schedule_name=''):
 	if schedule_name != "":
 		schedules = get_schedules(schedule_name)['schedules']
+		reply_output = ""
+		for schedule in schedules:
+			user_list = ""
+			for user in schedule['users']:
+				user_list += "{}, ".format(user['summary'])
+			reply_output += "Name: *{}*\nURL: *{}*\nTeam Members: *{}*\n---------------------------\n".format(schedule['name'], schedule['html_url'], user_list[:-2])
+		message.reply(reply_output)
 	else:
-		schedules = get_schedules('')['schedules']
-	reply_output = ""
-	for schedule in schedules:
-		user_list = ""
-		for user in schedule['users']:
-			user_list += "{}, ".format(user['summary'])
-		reply_output += "Name: *{}*\nURL: *{}*\nTeam Members: *{}*\n---------------------------\n".format(schedule['name'], schedule['html_url'], user_list[:-2])
-	message.reply(reply_output)
+		message.reply("No schedule name was passed")
+	# else:
+	# 	schedules = get_schedules()['schedules']
+	# reply_output = ""
+	# for schedule in schedules:
+	# 	user_list = ""
+	# 	for user in schedule['users']:
+	# 		user_list += "{}, ".format(user['summary'])
+	# 	reply_output += "Name: *{}*\nURL: *{}*\nTeam Members: *{}*\n---------------------------\n".format(schedule['name'], schedule['html_url'], user_list[:-2])
+	# message.reply(reply_output)
 
 
