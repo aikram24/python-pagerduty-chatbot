@@ -32,7 +32,7 @@ def list_oncalls(scheduleID, uri='/oncalls'):
         'since': SINCE,
         'until': UNTIL,
         'earliest': EARLIEST,
-        'limit': 5
+        'limit': 100
     }
     r = requests.get(url, headers=headers, params=payload)
     time.sleep(1/250)
@@ -40,14 +40,14 @@ def list_oncalls(scheduleID, uri='/oncalls'):
     try:
         return data['oncalls'][0]['user']['summary']
     except IndexError:
-        return 'nothing'
+        return 'No one is on call for this schedule'
 
 
 def list_schedules(query='',uri='/schedules'):
     url = "{}/{}".format(api_url, uri)
     payload = {
         'query': query,
-        'limit': 40
+        'limit': 100
     }
     r = requests.get(url, headers=headers, params=payload)
     data =  r.json()
