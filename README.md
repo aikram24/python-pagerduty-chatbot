@@ -1,10 +1,11 @@
-#Pagerduty Chatbot Python
-######A pagerduty chat bot using [lins05/slackbot](https://github.com/lins05/slackbot) as a framework.
+# Pagerduty Chatbot Python
+###### A pagerduty chat bot using [lins05/slackbot](https://github.com/lins05/slackbot) as a framework.
 
-#Installation
-```git clone https://github.com/aikram24/python-pagerduty-chatbot.git
-pip install -r requirements.txt
-```
+# Installation
+```git clone https://github.com/aikram24/python-pagerduty-chatbot.git```
+
+```pip install -r requirements.txt```
+
 # Usage
 ## Generate tokens
 1. Generate an api token on [slack web api page](https://api.slack.com/web).
