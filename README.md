@@ -3,11 +3,10 @@
 
 # Installation
 ```git clone https://github.com/aikram24/python-pagerduty-chatbot.git```
-
 ```pip install -r requirements.txt```
 
 # Usage
-## Generate tokens
+#### Generate tokens
 1. Generate an api token on [slack web api page](https://api.slack.com/web).
 ..* Update **SLACK_API_TOKEN** in slackbot_settings.py
 2. Generate bot user integration by going https://**<domain name>**.slack.com/apps/build/custom-integration
